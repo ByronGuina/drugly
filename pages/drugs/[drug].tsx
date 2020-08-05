@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { formulas, Drugs } from '@formulas/root'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { DrugOutput } from '@components/drug-output'
 
 type Props = {
     drug: Drugs
@@ -15,10 +16,11 @@ export default function RangeDrugTemplate({ drug }: Props) {
     const result = fn(input)
 
     return (
-        <div className="flex flex-col items-center space-y-4">
-            <div className="flex flex-col items-start">
+        <div className="flex flex-col space-y-4">
+            <div className="flex flex-col items-start space-y-2">
                 <label>{drug.toUpperCase()}</label>
                 <input
+                    className="px-4 py-2 rounded-lg"
                     min="1"
                     type="number"
                     step={1}
@@ -27,28 +29,38 @@ export default function RangeDrugTemplate({ drug }: Props) {
                     placeholder="Enter weight in kg (i.e. 50)"
                 />
             </div>
-            <p>
+            <div className="space-y-1">
+                {'mg' in result && (
+                    <DrugOutput>
+                        mg: <b>{result.mg}</b>
+                    </DrugOutput>
+                )}
+                {'ml' in result && (
+                    <DrugOutput>
+                        Starting ml: <b>{result.ml}</b>
+                    </DrugOutput>
+                )}
                 {'startMg' in result && (
-                    <div className="font-mono">
+                    <DrugOutput>
                         Starting mg: <b>{result.startMg}</b>
-                    </div>
+                    </DrugOutput>
                 )}
                 {'endMg' in result && (
-                    <div className="font-mono">
+                    <DrugOutput>
                         Ending mg: <b>{result.endMg}</b>
-                    </div>
+                    </DrugOutput>
                 )}
                 {'startMl' in result && (
-                    <div className="font-mono">
+                    <DrugOutput>
                         Starting dose: <b>{result.startMl}</b>
-                    </div>
+                    </DrugOutput>
                 )}
                 {'endMl' in result && (
-                    <div className="font-mono">
+                    <DrugOutput>
                         Ending dose: <b>{result.endMl}</b>
-                    </div>
+                    </DrugOutput>
                 )}
-            </p>
+            </div>
         </div>
     )
 }
