@@ -2,6 +2,12 @@ import * as React from 'react'
 import { formulas } from '@formulas/root'
 import Link from 'next/link'
 
+const sentenceCase = (str: string) => {
+    if (!str) return false
+
+    return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())
+}
+
 // TODO:
 // Create route for each drug statically
 //   Map each drug to a template page -- i.e., not every drug page will be the same
@@ -22,10 +28,16 @@ import Link from 'next/link'
 const IndexPage = () => {
     const drugs = Object.keys(formulas).map(drug => (
         <Link href={`/drugs/${drug}`} key={drug}>
-            <a>{drug}</a>
+            <a className="text-xl py-2 px-1">{sentenceCase(drug)}</a>
         </Link>
     ))
-    return <div>{drugs}</div>
+
+    return (
+        <main>
+            <h1 className="px-1 mb-4 text-4xl font-bold tracking-tight">Drugs</h1>
+            <div className="w-full flex flex-col">{drugs}</div>
+        </main>
+    )
 }
 
 export default IndexPage
