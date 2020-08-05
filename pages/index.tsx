@@ -17,6 +17,8 @@ import { DrugContainer } from '@components/drug-container'
 // Write tests
 //   formulas
 //   drug page entry + result + edge cases (should not be able to enter strings into drugs)
+// Get unique domain name
+// Make PWA
 const IndexPage = () => {
     return (
         <div>
