@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { formulas, Drugs } from '@formulas/root'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 type Props = {
     drug: Drugs
@@ -45,7 +46,7 @@ export default function RangeDrugTemplate({ drug }: Props) {
     )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
     const paths = Object.keys(formulas).map(d => ({
         params: { drug: d },
     }))
@@ -56,7 +57,7 @@ export async function getStaticPaths() {
     }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
         props: {
             drug: params.drug,
