@@ -5,5 +5,5 @@ type Props = {
 }
 
 export const DrugOutput = ({ children }: Props) => {
-    return <p className="font-mono">{children}</p>
+    return <p className="text-lg font-mono">{children}</p>
 }

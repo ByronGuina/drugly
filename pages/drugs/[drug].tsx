@@ -2,6 +2,7 @@ import * as React from 'react'
 import { formulas, Drugs } from '@formulas/root'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { DrugOutput } from '@components/drug-output'
+import { sentenceCase } from '@utils/sentenceCase'
 
 type Props = {
     drug: Drugs
@@ -17,10 +18,11 @@ export default function RangeDrugTemplate({ drug }: Props) {
 
     return (
         <div className="flex flex-col space-y-4">
+            <h1 className="text-4xl font-bold">{sentenceCase(drug)}</h1>
             <div className="flex flex-col items-start space-y-2">
-                <label>{drug.toUpperCase()}</label>
+                <label className="text-lg">Weight (kg)</label>
                 <input
-                    className="px-4 py-2 rounded-lg"
+                    className="px-4 py-2 rounded-lg text-xl"
                     min="1"
                     type="number"
                     step={1}

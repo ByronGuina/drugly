@@ -1,12 +1,7 @@
 import * as React from 'react'
 import { formulas } from '@formulas/root'
 import Link from 'next/link'
-
-const sentenceCase = (str: string) => {
-    if (!str) return false
-
-    return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())
-}
+import { sentenceCase } from '@utils/sentenceCase'
 
 // TODO:
 // Create route for each drug statically
