@@ -17,13 +17,7 @@ export default function RangeDrugTemplate({ drug }: Props) {
         <div className="flex flex-col items-center space-y-4">
             <div className="flex flex-col items-start">
                 <label>{drug.toUpperCase()}</label>
-                <input
-                    min="1"
-                    type="number"
-                    value={input}
-                    onChange={onType}
-                    placeholder="Enter weight in kg (i.e. 50)"
-                />
+                <input min="1" type="tel" value={input} onChange={onType} placeholder="Enter weight in kg (i.e. 50)" />
             </div>
             <p>
                 {'startMg' in result && (
