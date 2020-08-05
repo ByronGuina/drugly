@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { formulas } from '@formulas/root'
-import { DrugContainer } from '@components/drug-container'
+import Link from 'next/link'
 
 // TODO:
 // Create route for each drug statically
@@ -20,11 +20,12 @@ import { DrugContainer } from '@components/drug-container'
 // Get unique domain name
 // Make PWA
 const IndexPage = () => {
-    return (
-        <div>
-            <DrugContainer drug="propafol" fns={formulas} />
-        </div>
-    )
+    const drugs = Object.keys(formulas).map(drug => (
+        <Link href={`/drugs/${drug}`} key={drug}>
+            <a>{drug}</a>
+        </Link>
+    ))
+    return <div>{drugs}</div>
 }
 
 export default IndexPage

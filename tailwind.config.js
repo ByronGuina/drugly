@@ -11,7 +11,7 @@ module.exports = {
         },
         extend: {
             colors: {
-                'byron-background': '#d6d6d6',
+                'byron-background': '#f2f2f2',
                 'byron-input': '#f7f5f2',
                 'byron-black': '#121214',
                 'byron-text': '#303030',
@@ -35,4 +35,4 @@ module.exports = {
     },
     variants: {},
     plugins: [],
-};
+}

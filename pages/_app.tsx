@@ -4,12 +4,12 @@ import { useRouter } from 'next/router'
 
 import '../styles/index.css'
 
-const title = "by. | Why hello there, I'm Byron"
-const descriptions = 'Rants, ravings, and cool shit Byron finds on the internet.'
+const title = 'drugly. | Anesthetic drug calculator'
+const descriptions = ''
 
 const MyApp = ({ Component, pageProps }) => {
     const router = useRouter()
-    const url = `https://guina.co${router.pathname}`
+    const url = `https://drugly.vercel.app${router.pathname}`
 
     return (
         <>
@@ -30,7 +30,7 @@ const MyApp = ({ Component, pageProps }) => {
                 <meta property="og:image" content="/site.png" />
 
                 {/* Less essential */}
-                <meta property="og:site_name" content="By. | Byron's Library" />
+                <meta property="og:site_name" content="drugly. | Anesthetic drug calculator" />
                 <meta name="twitter:site" content="@byron_guina" />
                 <meta name="twitter:creator" content="@byron_guina" />
                 {/* <meta name="theme-color" content="#sdlakd" /> */}
