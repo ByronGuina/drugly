@@ -20,11 +20,13 @@ import { sentenceCase } from '@utils/sentenceCase'
 //   drug page entry + result + edge cases (should not be able to enter strings into drugs)
 // Get unique domain name
 // Make PWA
+// Swap to Inter
 // Design language?
 //   iOS? Spotify? Destiny? BetterLayout? Reboot? Monospace?
 //   Brutalist-ish and typography focused. Black-white + colored accents
 //   Slide-up panel ala iOS instead of completely separate page?
 // Gesture-based navigation
+// Favoriting drugs
 const IndexPage = () => {
     const drugs = Object.keys(formulas).map(drug => (
         <Link href={`/drugs/${drug}`} key={drug}>
