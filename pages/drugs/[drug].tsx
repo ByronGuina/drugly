@@ -53,14 +53,14 @@ export default function RangeDrugTemplate({ drug }: Props) {
 export const Back = () => {
     return (
         <Link href="/">
-            <a className="back flex">
+            <a className="back flex items-center text-byron-indigo">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 }}
-                    className="fill-current"
+                    className="mr-1"
                 >
-                    <ArrowLeft />
+                    <ArrowLeft size="1rem" />
                 </motion.div>
                 <motion.p layoutId="drugs" className="inline-block pr-3">
                     Drugs
