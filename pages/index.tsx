@@ -12,6 +12,9 @@ import Link from 'next/link'
 //   What outputs do we want for each drug?
 // Compile list of unique formulas
 //   Figure out how to differentiate formulas based on drug
+// Design Pages (everything mobile first)
+//   Template pages
+//   Search page
 // Create drug template pages
 //   Use rxjs for the calculation side effects and value entries
 // Write tests
