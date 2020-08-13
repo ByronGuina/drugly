@@ -4,12 +4,12 @@
     "description": "Anesthetic drug calculator",
     "icons": [
         {
-            "src": "favicon.png",
+            "src": "192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "favicon.png",
+            "src": "512.png",
             "type": "image/png",
             "sizes": "512x512"
         }

@@ -37,8 +37,8 @@ const MyApp = ({ Component, pageProps }) => {
                 <meta name="twitter:site" content="@byron_guina" />
                 <meta name="twitter:creator" content="@byron_guina" />
                 {/* <meta name="theme-color" content="#sdlakd" /> */}
-                <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-                <link rel="apple-touch-icon" href="/favicon.png" />
+                <link rel="shortcut icon" type="image/png" href="/192.png" />
+                <link rel="apple-touch-icon" href="/192.png" />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
                     rel="preconnect stylesheet"
