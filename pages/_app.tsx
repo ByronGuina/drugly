@@ -37,6 +37,10 @@ const MyApp = ({ Component, pageProps }) => {
 
                 <link rel="shortcut icon" type="image/png" href="/favicon.png" />
                 <link rel="apple-touch-icon" href="/favicon.png" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+                    rel="preconnect stylesheet"
+                />
             </Head>
             <div className="designed by byron">
                 <Component {...pageProps} />

@@ -1,3 +1,5 @@
+@import url('https://rsms.me/inter/inter.css');
+
 @font-face {
     font-family: 'Byron Sans';
     src: url('./fonts/Graphik-Regular.woff2') format('woff2');
@@ -20,4 +22,8 @@ html {
     -moz-osx-font-smoothing: grayscale;
     font-kerning: auto;
     font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'cv10', 'cv06';
+}
+
+.tabular {
+    font-feature-settings: 'tnum';
 }

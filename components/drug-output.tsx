@@ -1,9 +1,15 @@
 import * as React from 'react'
 
 type Props = {
-    children: React.ReactNode
+    title: React.ReactNode
+    value: React.ReactNode
 }
 
-export const DrugOutput = ({ children }: Props) => {
-    return <p className="text-lg font-mono">{children}</p>
+export const DrugOutput = ({ title, value }: Props) => {
+    return (
+        <div className="py-5 w-40">
+            <h2 className="text-md font-mono">{title}</h2>
+            <p className="tabular text-xl font-bold">{value}</p>
+        </div>
+    )
 }

@@ -6,8 +6,8 @@ module.exports = {
             tablet: { min: '887px', max: '1353px' },
         },
         fontFamily: {
-            sans: "'Byron Sans', 'Inter', 'sans-serif'",
-            mono: "'Inconsolata', monospace",
+            sans: "'Inter', 'sans-serif'",
+            mono: "'Roboto Mono', monospace",
         },
         extend: {
             colors: {

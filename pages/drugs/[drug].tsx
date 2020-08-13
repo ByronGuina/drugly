@@ -31,37 +31,13 @@ export default function RangeDrugTemplate({ drug }: Props) {
                     placeholder="Enter weight in kg (i.e. 50)"
                 />
             </div>
-            <div className="space-y-1">
-                {'mg' in result && (
-                    <DrugOutput>
-                        mg: <b>{result.mg}</b>
-                    </DrugOutput>
-                )}
-                {'ml' in result && (
-                    <DrugOutput>
-                        Starting ml: <b>{result.ml}</b>
-                    </DrugOutput>
-                )}
-                {'startMg' in result && (
-                    <DrugOutput>
-                        Starting mg: <b>{result.startMg}</b>
-                    </DrugOutput>
-                )}
-                {'endMg' in result && (
-                    <DrugOutput>
-                        Ending mg: <b>{result.endMg}</b>
-                    </DrugOutput>
-                )}
-                {'startMl' in result && (
-                    <DrugOutput>
-                        Starting dose: <b>{result.startMl}</b>
-                    </DrugOutput>
-                )}
-                {'endMl' in result && (
-                    <DrugOutput>
-                        Ending dose: <b>{result.endMl}</b>
-                    </DrugOutput>
-                )}
+            <div className="flex flex-wrap">
+                {'mg' in result && <DrugOutput title="Starting mg" value={result.mg} />}
+                {'ml' in result && <DrugOutput title="Starting ml" value={result.ml} />}
+                {'startMg' in result && <DrugOutput title="Starting mg" value={result.startMg} />}
+                {'endMg' in result && <DrugOutput title="Ending mg" value={result.endMg} />}
+                {'startMl' in result && <DrugOutput title="Starting dose" value={result.startMl} />}
+                {'endMl' in result && <DrugOutput title="Ending dose" value={result.endMl} />}
             </div>
         </div>
     )
