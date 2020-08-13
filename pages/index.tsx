@@ -51,13 +51,13 @@ const IndexPage = () => {
     }
 
     return (
-        <main>
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <motion.h1 className="px-1 mb-2 text-5xl font-bold tracking-tight inline-block" layoutId="drugs">
                 Drugs
             </motion.h1>
             <Search placeholder="Search for a drug" onChange={onSearch} />
             <div className="flex flex-col">{DrugsList}</div>
-        </main>
+        </motion.main>
     )
 }
 

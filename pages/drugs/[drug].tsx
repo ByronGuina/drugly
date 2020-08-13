@@ -21,7 +21,7 @@ export default function RangeDrugTemplate({ drug }: Props) {
     const drugName = sentenceCase(drug)
 
     return (
-        <div className="relative">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative">
             <Back />
             <div className="flex flex-col space-y-4">
                 <h1 className="text-4xl font-bold">{drugName}</h1>
@@ -46,7 +46,7 @@ export default function RangeDrugTemplate({ drug }: Props) {
                     {'endMl' in result && <DrugOutput title="Ending dose" value={result.endMl} />}
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
