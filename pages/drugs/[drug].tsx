@@ -53,7 +53,7 @@ export default function RangeDrugTemplate({ drug }: Props) {
 export const Back = () => {
     return (
         <Link href="/">
-            <a onClick={() => window.navigator.vibrate(200)} className="back flex items-center text-byron-indigo">
+            <a className="back flex items-center text-byron-indigo">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

@@ -33,9 +33,7 @@ import { motion } from 'framer-motion'
 const IndexPage = () => {
     const drugs = Object.keys(formulas).map(drug => (
         <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
-            <a onClick={() => window.navigator.vibrate(200)} className="text-xl py-2 px-1">
-                {sentenceCase(drug)}
-            </a>
+            <a className="text-xl py-2 px-1">{sentenceCase(drug)}</a>
         </Link>
     ))
 
