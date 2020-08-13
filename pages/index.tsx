@@ -39,7 +39,9 @@ const IndexPage = () => {
 
     const DrugsList = drugs.map(drug => (
         <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
-            <a className="text-xl py-2 px-1">{sentenceCase(drug)}</a>
+            <motion.a initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-xl py-2 px-1">
+                {sentenceCase(drug)}
+            </motion.a>
         </Link>
     ))
 
@@ -51,15 +53,12 @@ const IndexPage = () => {
     return (
         <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div className="flex flex-col">
-                <motion.h1
-                    className="px-1 mb-2 text-5xl font-bold tracking-tight relative inline-block"
-                    layoutId="drugs"
-                >
+                <motion.h1 className="px-1 mb-2 text-5xl font-bold tracking-tight relative block" layoutId="drugs">
                     Drugs
                 </motion.h1>
                 <Search placeholder="Search for a drug" onChange={onSearch} />
             </div>
-            <div className="w-full flex flex-col">{DrugsList}</div>
+            <div className="flex flex-col">{DrugsList}</div>
         </motion.main>
     )
 }

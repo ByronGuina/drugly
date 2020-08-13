@@ -62,7 +62,7 @@ export const Back = () => {
                 >
                     <ArrowLeft size="1rem" />
                 </motion.div>
-                <motion.p layoutId="drugs" className="inline-block pr-3">
+                <motion.p layoutId="drugs" className="block pr-3">
                     Drugs
                 </motion.p>
             </a>
