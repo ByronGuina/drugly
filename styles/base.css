@@ -11,6 +11,10 @@ html {
     @apply bg-byron-background;
     @apply text-byron-text;
 
+    max-width: 70ch;
+    padding: 1ch;
+    margin: auto;
+
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

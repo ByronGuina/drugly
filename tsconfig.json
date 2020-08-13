@@ -25,7 +25,8 @@
             "@components/*": ["components/*"],
             "@pages/*": ["pages/*"],
             "@styles/*": ["styles/*"],
-            "@formulas/*": ["formulas/*"]
+            "@formulas/*": ["formulas/*"],
+            "@utils/*": ["utils/*"]
         }
     },
     "exclude": ["node_modules"],

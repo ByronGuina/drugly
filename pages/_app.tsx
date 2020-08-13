@@ -38,7 +38,7 @@ const MyApp = ({ Component, pageProps }) => {
                 <link rel="shortcut icon" type="image/png" href="/favicon.png" />
                 <link rel="apple-touch-icon" href="/favicon.png" />
             </Head>
-            <div className="designed by byron overflow-x-hidden">
+            <div className="designed by byron">
                 <Component {...pageProps} />
             </div>
         </>
