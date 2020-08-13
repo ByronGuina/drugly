@@ -32,8 +32,10 @@ import { motion } from 'framer-motion'
 // Favoriting drugs
 const IndexPage = () => {
     const drugs = Object.keys(formulas).map(drug => (
-        <Link onClick={() => window.navigator.vibrate(200)} href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
-            <a className="text-xl py-2 px-1">{sentenceCase(drug)}</a>
+        <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
+            <a onClick={() => window.navigator.vibrate(200)} className="text-xl py-2 px-1">
+                {sentenceCase(drug)}
+            </a>
         </Link>
     ))
 
