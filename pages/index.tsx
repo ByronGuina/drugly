@@ -33,18 +33,18 @@ import { motion } from 'framer-motion'
 // Favoriting drugs
 const IndexPage = () => {
     const drugs = Object.keys(formulas).map(drug => (
-        <Link href={`/drugs/${drug}`} key={drug}>
+        <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
             <a className="text-xl py-2 px-1">{sentenceCase(drug)}</a>
         </Link>
     ))
 
     return (
-        <main>
-            <motion.h1 className="px-1 mb-4 text-5xl font-bold tracking-tight" layoutId="drugs">
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <motion.h1 className="px-1 mb-4 text-5xl font-bold tracking-tight relative inline-block" layoutId="drugs">
                 Drugs
             </motion.h1>
             <div className="w-full flex flex-col">{drugs}</div>
-        </main>
+        </motion.main>
     )
 }
 
