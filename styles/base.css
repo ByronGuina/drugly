@@ -1,11 +1,5 @@
 @import url('https://rsms.me/inter/inter.css');
 
-@font-face {
-    font-family: 'Byron Sans';
-    src: url('./fonts/Graphik-Regular.woff2') format('woff2');
-    font-display: swap;
-}
-
 body,
 html {
     font-size: 1rem;
@@ -15,6 +9,7 @@ html {
 
     max-width: 70ch;
     padding: 1ch;
+    padding-top: 3ch;
     margin: auto;
 
     text-rendering: optimizeLegibility;
@@ -22,6 +17,11 @@ html {
     -moz-osx-font-smoothing: grayscale;
     font-kerning: auto;
     font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'cv10', 'cv06';
+}
+
+.back {
+    position: absolute;
+    top: -3ch;
 }
 
 .tabular {

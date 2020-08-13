@@ -2,6 +2,7 @@ import * as React from 'react'
 import { formulas } from '@formulas/root'
 import Link from 'next/link'
 import { sentenceCase } from '@utils/sentenceCase'
+import { motion } from 'framer-motion'
 
 // TODO:
 // Create route for each drug statically
@@ -39,7 +40,9 @@ const IndexPage = () => {
 
     return (
         <main>
-            <h1 className="px-1 mb-4 text-4xl font-bold tracking-tight">Drugs</h1>
+            <motion.h1 className="px-1 mb-4 text-5xl font-bold tracking-tight" layoutId="drugs">
+                Drugs
+            </motion.h1>
             <div className="w-full flex flex-col">{drugs}</div>
         </main>
     )
