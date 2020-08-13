@@ -48,7 +48,7 @@ const MyApp = ({ Component, pageProps }) => {
             </Head>
             <div className="designed by byron">
                 <AnimateSharedLayout type="crossfade">
-                    <Component {...pageProps} />
+                    <Component {...pageProps} key={router.route} />
                 </AnimateSharedLayout>
             </div>
         </>
