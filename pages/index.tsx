@@ -3,6 +3,7 @@ import { formulas } from '@formulas/root'
 import Link from 'next/link'
 import { sentenceCase } from '@utils/sentenceCase'
 import { motion } from 'framer-motion'
+import { Search } from '@components/search'
 
 // TODO:
 // Create route for each drug statically
@@ -23,26 +24,42 @@ import { motion } from 'framer-motion'
 //   drug page entry + result + edge cases (should not be able to enter strings into drugs)
 // Get unique domain name
 // Make PWA
-// Swap to Inter
+//    Service worker
 // Design language?
 //   iOS? Spotify? Destiny? BetterLayout? Reboot? Monospace?
 //   Brutalist-ish and typography focused. Black-white + colored accents
 //   Slide-up panel ala iOS instead of completely separate page?
 // Gesture-based navigation
 // Favoriting drugs
+
+const allDrugs = Object.keys(formulas)
+
 const IndexPage = () => {
-    const drugs = Object.keys(formulas).map(drug => (
+    const [drugs, setDrugs] = React.useState(allDrugs)
+
+    const DrugsList = drugs.map(drug => (
         <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
             <a className="text-xl py-2 px-1">{sentenceCase(drug)}</a>
         </Link>
     ))
 
+    const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const filteredDrugs = allDrugs.filter(drug => drug.includes(e.target.value.toLowerCase()))
+        setDrugs(filteredDrugs)
+    }
+
     return (
         <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <motion.h1 className="px-1 mb-4 text-5xl font-bold tracking-tight relative inline-block" layoutId="drugs">
-                Drugs
-            </motion.h1>
-            <div className="w-full flex flex-col">{drugs}</div>
+            <div className="flex flex-col">
+                <motion.h1
+                    className="px-1 mb-2 text-5xl font-bold tracking-tight relative inline-block"
+                    layoutId="drugs"
+                >
+                    Drugs
+                </motion.h1>
+                <Search placeholder="Search for a drug" onChange={onSearch} />
+            </div>
+            <div className="w-full flex flex-col">{DrugsList}</div>
         </motion.main>
     )
 }
