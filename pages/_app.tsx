@@ -42,6 +42,8 @@ const MyApp = ({ Component, pageProps }) => {
                     href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
                     rel="preconnect stylesheet"
                 />
+                <link rel="manifest" href="/manifest.json" />
+                <meta name="theme-color" content="#f2f2f2" />
             </Head>
             <div className="designed by byron">
                 <AnimateSharedLayout type="crossfade">
