@@ -1,0 +1,21 @@
+{
+    "short_name": "Drugly",
+    "name": "Drugly: Anesthestic drug calculator",
+    "description": "Anesthetic drug calculator",
+    "icons": [
+        {
+            "src": "favicon.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "favicon.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#121212",
+    "display": "standalone",
+    "theme_color": "#121212"
+}
