@@ -8,7 +8,6 @@ import { motion } from 'framer-motion'
 // Create route for each drug statically
 //   Map each drug to a template page -- i.e., not every drug page will be the same
 //   Create searchable list of drugs. Clicking a drug routes you to the drug page
-//   Clicking back takes you to the drug list
 // Compile list of drugs
 //   What inputs do we want for each drug?
 //   What outputs do we want for each drug?
@@ -33,7 +32,7 @@ import { motion } from 'framer-motion'
 // Favoriting drugs
 const IndexPage = () => {
     const drugs = Object.keys(formulas).map(drug => (
-        <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
+        <Link onClick={() => window.navigator.vibrate(200)} href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
             <a className="text-xl py-2 px-1">{sentenceCase(drug)}</a>
         </Link>
     ))
