@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { DrugOutput } from '@components/drug-output'
 import { sentenceCase } from '@utils/sentenceCase'
 import Link from 'next/link'
-import { ArrowLeft } from 'react-feather'
+import { ChevronLeft } from 'react-feather'
 import { motion } from 'framer-motion'
 
 type Props = {
@@ -22,10 +22,10 @@ export default function RangeDrugTemplate({ drug }: Props) {
 
     return (
         <motion.div
-            initial={{ opacity: 0, x: -200 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 200 }}
-            transition={{ type: 'tween', ease: 'easeOut' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: 'tween', ease: 'easeOut', duration: 0.45 }}
             className="relative"
         >
             <Back />
@@ -66,7 +66,7 @@ const Back = () => {
                     transition={{ delay: 0.15 }}
                     className="mr-1"
                 >
-                    <ArrowLeft size="1rem" />
+                    <ChevronLeft size="1rem" />
                 </motion.div>
                 <motion.p layoutId="drugs" className="inline-block pr-3">
                     Drugs
