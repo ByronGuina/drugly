@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { formulas, Drugs } from '@formulas/root'
+import { formulas, Drugs, allDrugs } from '@formulas/root'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { DrugOutput } from '@components/drug-output'
 import { sentenceCase } from '@utils/sentenceCase'
@@ -21,7 +21,13 @@ export default function RangeDrugTemplate({ drug }: Props) {
     const drugName = sentenceCase(drug)
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative">
+        <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 200 }}
+            transition={{ type: 'tween', ease: 'easeOut' }}
+            className="relative"
+        >
             <Back />
             <div className="flex flex-col space-y-4">
                 <h1 className="text-4xl font-bold">{drugName}</h1>
@@ -50,7 +56,7 @@ export default function RangeDrugTemplate({ drug }: Props) {
     )
 }
 
-export const Back = () => {
+const Back = () => {
     return (
         <Link href="/">
             <a className="back flex items-center text-byron-indigo">
@@ -71,7 +77,7 @@ export const Back = () => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = Object.keys(formulas).map(d => ({
+    const paths = allDrugs.map(d => ({
         params: { drug: d },
     }))
 

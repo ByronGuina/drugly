@@ -1,14 +1,11 @@
 import * as React from 'react'
-import { formulas } from '@formulas/root'
+import { allDrugs } from '@formulas/root'
 import Link from 'next/link'
 import { sentenceCase } from '@utils/sentenceCase'
 import { motion } from 'framer-motion'
 import { Search } from '@components/search'
 
 // TODO:
-// Create route for each drug statically
-//   Map each drug to a template page -- i.e., not every drug page will be the same
-//   Create searchable list of drugs. Clicking a drug routes you to the drug page
 // Compile list of drugs
 //   What inputs do we want for each drug?
 //   What outputs do we want for each drug?
@@ -29,10 +26,10 @@ import { Search } from '@components/search'
 //   iOS? Spotify? Destiny? BetterLayout? Reboot? Monospace?
 //   Brutalist-ish and typography focused. Black-white + colored accents
 //   Slide-up panel ala iOS instead of completely separate page?
+// Animate numbers changing in drug page
 // Gesture-based navigation
 // Favoriting drugs
-
-const allDrugs = Object.keys(formulas)
+// Drug tags
 
 const IndexPage = () => {
     const [drugs, setDrugs] = React.useState(allDrugs)
@@ -51,7 +48,11 @@ const IndexPage = () => {
     }
 
     return (
-        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <motion.main
+            initial={{ opacity: 0, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: 'tween', ease: 'easeOut' }}
+        >
             <motion.h1 className="px-1 mb-2 text-5xl font-bold tracking-tight inline-block" layoutId="drugs">
                 Drugs
             </motion.h1>

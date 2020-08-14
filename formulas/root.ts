@@ -10,3 +10,5 @@ export type DrugsMap = Record<Drugs, RangeFn>
 export const formulas: DrugsMap = {
     propofol: propofolFn,
 }
+
+export const allDrugs = Object.keys(formulas)
