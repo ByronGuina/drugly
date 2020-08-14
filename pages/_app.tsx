@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import '../styles/index.css'
-import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import { AnimateSharedLayout } from 'framer-motion'
 
 const title = 'drugly. | Anesthetic drug calculator'
 const descriptions = ''
@@ -48,9 +48,7 @@ const MyApp = ({ Component, pageProps }) => {
             </Head>
             <div className="designed by byron">
                 <AnimateSharedLayout>
-                    <AnimatePresence>
-                        <Component {...pageProps} key={router.route} />
-                    </AnimatePresence>
+                    <Component {...pageProps} key={router.route} />
                 </AnimateSharedLayout>
             </div>
         </>
