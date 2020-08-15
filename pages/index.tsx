@@ -3,7 +3,7 @@ import { allDrugs, Drugs } from '@formulas/root'
 import { sentenceCase } from '@utils/sentenceCase'
 import { motion, PanInfo, AnimatePresence } from 'framer-motion'
 import { Search } from '@components/search'
-import DrugTemplate from './drugs/[drug]'
+import { DrugTemplate } from '@components/drug-template'
 
 // TODO:
 // Compile list of drugs
@@ -85,13 +85,9 @@ type DrugModalProps = {
 }
 
 const DrugModal = ({ drug, setOpen }: DrugModalProps) => {
-    // TODO:
-    // Use gesture interpolation
-    // If swipe down gesture is > X then set selected drug to false
-
     const onClose = (_, info: PanInfo) => {
         // how do we know that the user has dragged "far enough"?
-        if (info.point.y < 300 && info.point.y > 140) {
+        if (info.offset.y > 300) {
             setOpen(null)
         }
     }
@@ -104,10 +100,15 @@ const DrugModal = ({ drug, setOpen }: DrugModalProps) => {
                 top: 0,
                 bottom: 0,
             }}
-            initial={{ opacity: 0, y: 1000 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 1000 }}
+            animate={{ y: 0 }}
             exit={{ y: 1000 }}
-            className="drug left-0 absolute rounded-xl shadow-xl h-screen py-4"
+            transition={{
+                type: 'spring',
+                damping: 22,
+                stiffness: 200,
+            }}
+            className="drug left-0 absolute rounded-xl shadow-xl h-screen"
         >
             <DrugTemplate drug={drug} />
         </motion.div>
