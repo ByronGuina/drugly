@@ -7,16 +7,18 @@ html {
     @apply bg-byron-background;
     @apply text-byron-text;
 
-    max-width: 70ch;
-    padding: 1ch;
-    padding-top: 3ch;
-    margin: auto;
-
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-kerning: auto;
     font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'cv10', 'cv06';
+}
+
+.layout {
+    max-width: 70ch;
+    padding: 2ch;
+    padding-top: 3ch;
+    margin: auto;
 }
 
 .back {
@@ -26,4 +28,10 @@ html {
 
 .tabular {
     font-feature-settings: 'tnum';
+}
+
+.drug {
+    background-color: #ffffff;
+    top: 10ch;
+    padding: 2ch;
 }

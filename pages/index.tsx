@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { allDrugs } from '@formulas/root'
+import { allDrugs, Drugs } from '@formulas/root'
 import Link from 'next/link'
 import { sentenceCase } from '@utils/sentenceCase'
-import { motion } from 'framer-motion'
+import { motion, PanInfo, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
 import { Search } from '@components/search'
+import DrugTemplate from './drugs/[drug]'
 
 // TODO:
 // Compile list of drugs
@@ -13,7 +14,6 @@ import { Search } from '@components/search'
 //   Figure out how to differentiate formulas based on drug
 // Design Pages (everything mobile first)
 //   Template pages
-//   Search page
 // Create drug template pages
 //   Use rxjs for the calculation side effects and value entries
 // Write tests
@@ -23,8 +23,7 @@ import { Search } from '@components/search'
 // Make PWA
 //    Service worker
 // Design language?
-//   iOS? Spotify? Destiny? BetterLayout? Reboot? Monospace?
-//   Brutalist-ish and typography focused. Black-white + colored accents
+//   iOS? Mercury?
 //   Slide-up panel ala iOS instead of completely separate page?
 // Animate numbers changing in drug page
 // Gesture-based navigation
@@ -32,14 +31,23 @@ import { Search } from '@components/search'
 // Drug tags
 
 const IndexPage = () => {
+    const [selectedDrug, setSelectedDrug] = React.useState(null)
     const [drugs, setDrugs] = React.useState(allDrugs)
 
     const DrugsList = drugs.map(drug => (
-        <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
-            <motion.a initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-xl py-2 px-1">
-                {sentenceCase(drug)}
-            </motion.a>
-        </Link>
+        // <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
+        //     <motion.a initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-xl py-2 px-1">
+        //         {sentenceCase(drug)}
+        //     </motion.a>
+        // </Link>
+        <motion.div
+            onClick={() => setSelectedDrug(drug)}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-xl py-2 px-1"
+        >
+            {sentenceCase(drug)}
+        </motion.div>
     ))
 
     const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,14 +60,56 @@ const IndexPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ type: 'tween', ease: 'easeOut', duration: 0.45 }}
+            className="layout"
         >
-            <motion.h1 className="px-1 mb-2 text-5xl font-bold tracking-tight inline-block" layoutId="drugs">
+            <motion.h1 className="mb-2 text-5xl font-bold tracking-tight inline-block" layoutId="drugs">
                 Drugs
             </motion.h1>
+
             <Search placeholder="Search for a drug" onChange={onSearch} />
+
             <div className="flex flex-col">{DrugsList}</div>
+
+            <AnimatePresence>
+                {selectedDrug && <DrugModal setOpen={setSelectedDrug} drug={selectedDrug} />}
+            </AnimatePresence>
         </motion.main>
     )
 }
 
 export default IndexPage
+
+type DrugModalProps = {
+    drug: Drugs
+    setOpen: (value: string | null) => void
+}
+
+const DrugModal = ({ drug, setOpen }: DrugModalProps) => {
+    // TODO:
+    // Use gesture interpolation
+    // If swipe down gesture is > X then set selected drug to false
+
+    const onClose = (_, info: PanInfo) => {
+        // how do we know that the user has dragged "far enough"?
+        if (info.point.y < 300 && info.point.y > 140) {
+            setOpen(null)
+        }
+    }
+
+    return (
+        <motion.div
+            drag="y"
+            onDragEnd={onClose}
+            dragConstraints={{
+                top: 0,
+                bottom: 0,
+            }}
+            initial={{ opacity: 0, y: 1000 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ y: 1000 }}
+            className="drug left-0 absolute rounded-xl shadow-xl h-screen py-4"
+        >
+            <DrugTemplate drug={drug} />
+        </motion.div>
+    )
+}

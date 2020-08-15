@@ -9,6 +9,14 @@ module.exports = {
             sans: "'Inter', 'sans-serif'",
             mono: "'Roboto Mono', monospace",
         },
+        borderRadius: {
+            none: '0',
+            sm: '.125rem',
+            default: '.25rem',
+            lg: '.5rem',
+            xl: '1rem',
+            full: '9999px',
+        },
         extend: {
             colors: {
                 'byron-background': '#f2f2f2',
