@@ -51,7 +51,6 @@ const IndexPage = () => {
         <motion.main
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             transition={{ type: 'tween', ease: 'easeOut', duration: 0.45 }}
         >
             <motion.h1 className="px-1 mb-2 text-5xl font-bold tracking-tight inline-block" layoutId="drugs">
