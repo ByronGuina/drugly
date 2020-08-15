@@ -1,5 +1,4 @@
 import { RangeFn } from './RangeFn'
-import { toMgMl, toMl } from './templates'
 
 // mg/kg
 const inductionDoseStart = 1.5
@@ -15,10 +14,10 @@ export const fn: RangeFn = weight => {
     const endMl = isNaN(endDose) ? 0 : endDose / 10
 
     return {
-        startMg: toMgMl(startMg),
-        endMg: toMgMl(endMg),
-        startMl: toMl(startMl),
-        endMl: toMl(endMl),
+        startMg,
+        endMg,
+        startMl,
+        endMl,
     }
 }
 

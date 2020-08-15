@@ -3,6 +3,7 @@ import { formulas, Drugs } from '@formulas/root'
 import { DrugOutput } from '@components/drug-output'
 import { sentenceCase } from '@utils/sentenceCase'
 import { Minus } from 'react-feather'
+import { mgMl, ml } from '@formulas/templates'
 
 type Props = {
     drug: Drugs
@@ -14,7 +15,8 @@ export const DrugTemplate = ({ drug }: Props) => {
     const onType = (e: React.ChangeEvent<HTMLInputElement>) => setInput(parseInt(e.target.value))
 
     const fn = formulas[drug]
-    const result = fn(input)
+    const value = isNaN(input) ? 0 : input
+    const result = fn(value)
     const drugName = sentenceCase(drug)
 
     return (
@@ -34,12 +36,12 @@ export const DrugTemplate = ({ drug }: Props) => {
                 />
             </div>
             <div className="flex flex-wrap">
-                {'mg' in result && <DrugOutput title="Starting mg" value={result.mg} />}
-                {'ml' in result && <DrugOutput title="Starting ml" value={result.ml} />}
-                {'startMg' in result && <DrugOutput title="Starting mg" value={result.startMg} />}
-                {'endMg' in result && <DrugOutput title="Ending mg" value={result.endMg} />}
-                {'startMl' in result && <DrugOutput title="Starting dose" value={result.startMl} />}
-                {'endMl' in result && <DrugOutput title="Ending dose" value={result.endMl} />}
+                {'mg' in result && <DrugOutput title="Starting mg" value={result.mg} unit={mgMl} />}
+                {'ml' in result && <DrugOutput title="Starting ml" value={result.ml} unit={ml} />}
+                {'startMg' in result && <DrugOutput title="Starting mg" value={result.startMg} unit={mgMl} />}
+                {'endMg' in result && <DrugOutput title="Ending mg" value={result.endMg} unit={mgMl} />}
+                {'startMl' in result && <DrugOutput title="Starting dose" value={result.startMl} unit={ml} />}
+                {'endMl' in result && <DrugOutput title="Ending dose" value={result.endMl} unit={ml} />}
             </div>
         </div>
     )

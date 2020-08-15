@@ -86,7 +86,6 @@ type DrugModalProps = {
 
 const DrugModal = ({ drug, setOpen }: DrugModalProps) => {
     const onClose = (_, info: PanInfo) => {
-        // how do we know that the user has dragged "far enough"?
         if (info.offset.y > 300) {
             setOpen(null)
         }
@@ -94,6 +93,7 @@ const DrugModal = ({ drug, setOpen }: DrugModalProps) => {
 
     return (
         <motion.div
+            key={drug}
             drag="y"
             onDragEnd={onClose}
             dragConstraints={{
