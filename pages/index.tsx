@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { allDrugs, Drugs } from '@formulas/root'
-import Link from 'next/link'
 import { sentenceCase } from '@utils/sentenceCase'
-import { motion, PanInfo, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
+import { motion, PanInfo, AnimatePresence } from 'framer-motion'
 import { Search } from '@components/search'
 import DrugTemplate from './drugs/[drug]'
 
@@ -29,7 +28,8 @@ import DrugTemplate from './drugs/[drug]'
 // Gesture-based navigation
 // Favoriting drugs
 // Drug tags
-
+// Setup GitHub Actions for CI
+//   Tests
 const IndexPage = () => {
     const [selectedDrug, setSelectedDrug] = React.useState(null)
     const [drugs, setDrugs] = React.useState(allDrugs)

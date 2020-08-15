@@ -3,9 +3,9 @@ import { formulas, Drugs, allDrugs } from '@formulas/root'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { DrugOutput } from '@components/drug-output'
 import { sentenceCase } from '@utils/sentenceCase'
-import Link from 'next/link'
-import { ChevronLeft } from 'react-feather'
-import { motion } from 'framer-motion'
+// import Link from 'next/link'
+// import { ChevronLeft } from 'react-feather'
+// import { motion } from 'framer-motion'
 
 type Props = {
     drug: Drugs
@@ -55,25 +55,25 @@ export default function RangeDrugTemplate({ drug }: Props) {
     )
 }
 
-const Back = () => {
-    return (
-        <Link href="/">
-            <a className="back flex items-center text-byron-indigo">
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.15 }}
-                    className="mr-1"
-                >
-                    <ChevronLeft size="1rem" />
-                </motion.div>
-                <motion.p layoutId="drugs" className="inline-block pr-3">
-                    Drugs
-                </motion.p>
-            </a>
-        </Link>
-    )
-}
+// const Back = () => {
+//     return (
+//         <Link href="/">
+//             <a className="back flex items-center text-byron-indigo">
+//                 <motion.div
+//                     initial={{ opacity: 0, x: -20 }}
+//                     animate={{ opacity: 1, x: 0 }}
+//                     transition={{ delay: 0.15 }}
+//                     className="mr-1"
+//                 >
+//                     <ChevronLeft size="1rem" />
+//                 </motion.div>
+//                 <motion.p layoutId="drugs" className="inline-block pr-3">
+//                     Drugs
+//                 </motion.p>
+//             </a>
+//         </Link>
+//     )
+// }
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = allDrugs.map(d => ({
