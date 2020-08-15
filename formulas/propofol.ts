@@ -9,11 +9,16 @@ export const fn: RangeFn = weight => {
     const startDose = weight * inductionDoseStart
     const endDose = weight * inductionDoseEnd
 
+    const startMg = isNaN(startDose) ? 0 : startDose
+    const endMg = isNaN(endDose) ? 0 : endDose
+    const startMl = isNaN(startDose) ? 0 : startDose / 10
+    const endMl = isNaN(endDose) ? 0 : endDose / 10
+
     return {
-        startMg: toMgMl(startDose),
-        endMg: toMgMl(endDose),
-        startMl: toMl(startDose / 10),
-        endMl: toMl(endDose / 10),
+        startMg: toMgMl(startMg),
+        endMg: toMgMl(endMg),
+        startMl: toMl(startMl),
+        endMl: toMl(endMl),
     }
 }
 
