@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { allDrugs, Drugs } from '@formulas/root'
-import { sentenceCase } from '@utils/sentenceCase'
 import { motion, PanInfo, AnimatePresence } from 'framer-motion'
 import { Search } from '@components/search'
 import { DrugTemplate } from '@components/drug-template'
+import { ListItem } from '@components/list-item'
 
 // TODO:
 // Compile list of drugs
@@ -34,22 +34,7 @@ const IndexPage = () => {
     const [selectedDrug, setSelectedDrug] = React.useState(null)
     const [drugs, setDrugs] = React.useState(allDrugs)
 
-    const DrugsList = drugs.map(drug => (
-        // <Link href={`/drugs/[drug]`} as={`/drugs/${drug}`} key={drug}>
-        //     <motion.a initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-xl py-2 px-1">
-        //         {sentenceCase(drug)}
-        //     </motion.a>
-        // </Link>
-        <motion.div
-            key={drug}
-            onClick={() => setSelectedDrug(drug)}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-lg py-2 px-1"
-        >
-            {sentenceCase(drug)}
-        </motion.div>
-    ))
+    const DrugsList = drugs.map(drug => <ListItem key={drug} drug={drug as Drugs} onClick={setSelectedDrug} />)
 
     const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const filteredDrugs = allDrugs.filter(drug => drug.includes(e.target.value.toLowerCase()))
