@@ -24,9 +24,9 @@ export const DrugTemplate = ({ drug }: Props) => {
             <Minus className="self-center" size="3rem" color="#707070" />
             <h1 className="text-4xl font-bold mb-2">{drugName}</h1>
             <div className="flex flex-col items-start space-y-2 mb-6">
-                <label className="text-md font-mono">Weight (kg)</label>
+                <label className="text-sm">Weight (kg)</label>
                 <input
-                    className="px-4 py-2 rounded-lg text-lg bg-byron-background"
+                    className="px-4 py-2 rounded-lg text-md bg-byron-background"
                     min="1"
                     type="number"
                     step={1}

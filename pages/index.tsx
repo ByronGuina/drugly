@@ -41,10 +41,11 @@ const IndexPage = () => {
         //     </motion.a>
         // </Link>
         <motion.div
+            key={drug}
             onClick={() => setSelectedDrug(drug)}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xl py-2 px-1"
+            className="text-lg py-2 px-1"
         >
             {sentenceCase(drug)}
         </motion.div>
@@ -62,7 +63,7 @@ const IndexPage = () => {
             transition={{ type: 'tween', ease: 'easeOut', duration: 0.45 }}
             className="layout"
         >
-            <motion.h1 className="mb-2 text-5xl font-bold tracking-tight inline-block" layoutId="drugs">
+            <motion.h1 className="mb-2 text-4xl font-bold tracking-tight inline-block" layoutId="drugs">
                 Drugs
             </motion.h1>
 
@@ -108,7 +109,7 @@ const DrugModal = ({ drug, setOpen }: DrugModalProps) => {
                 damping: 22,
                 stiffness: 200,
             }}
-            className="drug left-0 absolute rounded-xl shadow-xl h-screen"
+            className="drug left-0 absolute rounded-xl shadow-xs h-screen"
         >
             <DrugTemplate drug={drug} />
         </motion.div>
