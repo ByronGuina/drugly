@@ -21,7 +21,7 @@ module.exports = {
         extend: {
             colors: {
                 'byron-background': '#f2f2f2',
-                'byron-background-active': '#f4f4f4',
+                'byron-background-active': '#e2e2e2',
                 'byron-input': '#f7f5f2',
                 'byron-black': '#121214',
                 'byron-text': '#303030',

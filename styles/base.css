@@ -36,3 +36,7 @@ html {
     padding: 2ch;
     padding-top: 0;
 }
+
+.active:active {
+    @apply bg-byron-background-active;
+}
