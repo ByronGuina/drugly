@@ -14,7 +14,7 @@ export const ListItem = ({ drug, onClick }: Props) => {
             onClick={() => onClick(drug)}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-lg py-2 px-1 flex justify-between"
+            className="text-lg py-2 px-1 flex justify-between active:bg-byron-background-active"
         >
             {sentenceCase(drug)}
             {/* <Tag /> */}

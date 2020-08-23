@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const DrugTemplate = ({ drug }: Props) => {
-    const [input, setInput] = React.useState(40)
+    const [input, setInput] = React.useState(1)
 
     const onType = (e: React.ChangeEvent<HTMLInputElement>) => setInput(parseInt(e.target.value))
 
