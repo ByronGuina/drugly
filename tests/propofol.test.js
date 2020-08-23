@@ -1,10 +1,10 @@
 import { fn } from '../formulas/propofol'
 
-test('propofol returns correct start mg/ml', () => {
+test('propofol returns correct start concentration', () => {
     expect(fn(50).startMg).toBe(75)
 })
 
-test('propofol returns correct end mg/ml', () => {
+test('propofol returns correct end concentration', () => {
     expect(fn(50).endMg).toBe(125)
 })
 
