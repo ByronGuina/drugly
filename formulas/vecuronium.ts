@@ -1,13 +1,13 @@
 import { RangeFn } from './RangeFn'
 
 // mg/kg
-const inductionDoseStart = 1.5
-const inductionDoseEnd = 2.5
-const supplyConcentration = 10
-const onset = '30 – 40'
-const peak = '1'
-const duration = '3 - 10'
-const elimination = 'Hepatic/Pulmonary'
+const inductionDoseStart = 0.1
+const inductionDoseEnd = 0.2
+const supplyConcentration = 1
+const onset = '120 - 240'
+const peak = '3 - 5'
+const duration = '30 - 60'
+const elimination = '80% Biliary/20% Renal'
 
 export const fn: RangeFn = weight => {
     const startDose = weight * inductionDoseStart

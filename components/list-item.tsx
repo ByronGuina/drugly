@@ -17,16 +17,16 @@ export const ListItem = ({ drug, onClick }: Props) => {
             className="text-lg py-2 px-1 flex justify-between"
         >
             {sentenceCase(drug)}
-            <Tag />
+            {/* <Tag /> */}
         </motion.div>
     )
 }
 
 // TODO: Make tag infrastructure
-const Tag = () => {
-    return (
-        <div className="px-2 py-1 flex items-center justify-center text-xs bg-blue-200 text-blue-800 rounded-lg">
-            IV/Sedative
-        </div>
-    )
-}
+// const Tag = () => {
+//     return (
+//         <div className="px-2 py-1 flex items-center justify-center text-xs bg-blue-200 text-blue-800 rounded-lg">
+//             IV/Sedative
+//         </div>
+//     )
+// }

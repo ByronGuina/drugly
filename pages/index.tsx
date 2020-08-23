@@ -11,8 +11,6 @@ import { ListItem } from '@components/list-item'
 //   What outputs do we want for each drug?
 // Compile list of unique formulas
 //   Figure out how to differentiate formulas based on drug
-// Design Pages (everything mobile first)
-//   Template pages
 // Create drug template pages
 //   Use rxjs for the calculation side effects and value entries
 // Write tests
@@ -26,8 +24,10 @@ import { ListItem } from '@components/list-item'
 //   Slide-up panel ala iOS instead of completely separate page?
 // Animate numbers changing in drug page
 // Gesture-based navigation
+//   Favoriting
 // Favoriting drugs
-// Drug tags
+// Drug tags + filtering
+//   Filtering UI
 // Setup GitHub Actions for CI
 //   Tests
 const IndexPage = () => {
@@ -94,7 +94,7 @@ const DrugModal = ({ drug, setOpen }: DrugModalProps) => {
                 damping: 22,
                 stiffness: 200,
             }}
-            className="drug left-0 absolute rounded-xl shadow-xs h-screen"
+            className="drug left-0 absolute rounded-xl shadow-xs h-screen w-screen"
         >
             <DrugTemplate drug={drug} />
         </motion.div>

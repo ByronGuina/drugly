@@ -1,2 +1,3 @@
-export const ml = `ml`
-export const mgMl = `mg/ml`
+export const dosage = `ml`
+export const concentration = `mg/ml`
+export const fentanylConcentration = `mcg/ml`

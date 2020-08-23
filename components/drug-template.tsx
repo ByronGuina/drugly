@@ -3,7 +3,9 @@ import { formulas, Drugs } from '@formulas/root'
 import { DrugOutput } from '@components/drug-output'
 import { sentenceCase } from '@utils/sentenceCase'
 import { Minus } from 'react-feather'
-import { mgMl, ml } from '@formulas/templates'
+import { concentration, dosage, fentanylConcentration } from '@formulas/templates'
+import { RangeOutput } from './range-output'
+import { DrugProperty } from './drug-property-output'
 
 type Props = {
     drug: Drugs
@@ -19,6 +21,10 @@ export const DrugTemplate = ({ drug }: Props) => {
     const result = fn(value)
     const drugName = sentenceCase(drug)
 
+    // TODO Fix these names
+
+    const concentrationUnit = drugName === 'Fentanyl' ? fentanylConcentration : concentration
+
     return (
         <div className="flex flex-col">
             <Minus className="self-center" size="3rem" color="#707070" />
@@ -32,16 +38,27 @@ export const DrugTemplate = ({ drug }: Props) => {
                     step={1}
                     value={input}
                     onChange={onType}
-                    placeholder="Enter weight in kg (i.e. 50)"
+                    placeholder="Enter weight in kg"
                 />
             </div>
-            <div className="flex flex-wrap">
-                {'mg' in result && <DrugOutput title="Starting mg" value={result.mg} unit={mgMl} />}
-                {'ml' in result && <DrugOutput title="Starting ml" value={result.ml} unit={ml} />}
-                {'startMg' in result && <DrugOutput title="Starting mg" value={result.startMg} unit={mgMl} />}
-                {'endMg' in result && <DrugOutput title="Ending mg" value={result.endMg} unit={mgMl} />}
-                {'startMl' in result && <DrugOutput title="Starting dose" value={result.startMl} unit={ml} />}
-                {'endMl' in result && <DrugOutput title="Ending dose" value={result.endMl} unit={ml} />}
+            <div className="flex flex-col">
+                {'mg' in result && <DrugOutput title="Concentration" value={result.mg} unit={concentrationUnit} />}
+                {'ml' in result && <DrugOutput title="Dosage" value={result.ml} unit={dosage} />}
+                {'startMg' in result && 'endMg' in result && (
+                    <RangeOutput
+                        title="Concentration"
+                        start={result.startMg}
+                        end={result.endMg}
+                        unit={concentrationUnit}
+                    />
+                )}
+                {'startMl' in result && 'endMl' in result && (
+                    <RangeOutput title="Dosage" start={result.startMl} end={result.endMl} unit={dosage} />
+                )}
+                <DrugProperty title="Onset" value={result.onset} unit="seconds" />
+                <DrugProperty title="Peak" value={result.peak} unit="minutes" />
+                <DrugProperty title="Duration" value={result.duration} unit="minutes" />
+                <DrugProperty title="Elimination" value={result.elimination} unit="" />
             </div>
         </div>
     )
